@@ -15,3 +15,6 @@ int main() {
     vector<int> dp(n, -1);
     cout << fibo(n-1, dp) << endl;
 }
+
+// TC: O(n)
+// SC: O(n) for recursion stack + O(n) for array
