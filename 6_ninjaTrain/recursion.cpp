@@ -7,7 +7,7 @@ int main()
 {
   int f(vector<vector<int>> & points, int day, int last, int score);
   vector<vector<int>> points = {{1, 2, 5}, {3, 1, 1}, {3, 3, 3}};
-  cout << f(points, points.size() - 1, -1, 0) << endl;
+  cout << f(points, points.size() - 1, 3, 0) << endl;
 }
 
 int f(vector<vector<int>> &points, int day, int last, int score)
@@ -23,11 +23,11 @@ int f(vector<vector<int>> &points, int day, int last, int score)
     return score + maxi;
   }
   int a0, a1, a2 = -1;
-  if (a0 != last)
+  if (last != 0)
     a0 = f(points, day - 1, 0, score + points[day][0]);
-  if (a1 != last)
+  if (last != 1)
     a1 = f(points, day - 1, 1, score + points[day][1]);
-  if (a2 != last)
+  if (last != 2)
     a2 = f(points, day - 1, 2, score + points[day][2]);
 
   return max(a0, max(a1, a2));
