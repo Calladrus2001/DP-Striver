@@ -8,10 +8,16 @@ int findWays(vector<int> &num, int tar)
 
 int helper(vector<int> &num, int target, int idx, vector<vector<int>> &dp)
 {
+  if (idx == 0)
+  {
+    if (target == 0 && num[idx] == 0)
+      return 2;
+    if (target == 0 || target == num[idx])
+      return 1;
+    return 0;
+  }
   if (target < 0)
     return 0;
-  if (target == 0)
-    return 1;
   if (idx < 0)
     return 0;
 
